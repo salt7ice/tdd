@@ -1,0 +1,6 @@
+# Project exclude paths
+/Impots/adapters/primaries/target/
+/Impots/adapters/secondaries/Memory/target/
+/Impots/adapters/secondaries/target/
+/Impots/core/target/
+/Impots/core-test/target/
