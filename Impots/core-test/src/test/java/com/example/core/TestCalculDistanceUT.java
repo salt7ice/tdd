@@ -1,5 +1,6 @@
 package com.example.core;
 
+import com.example.core.exceptions.MapNotFoundException;
 import com.example.core.usecase.CalculTrajectoire;
 import data.MapsRepository;
 import org.assertj.core.api.Assertions;
@@ -108,11 +109,11 @@ public class TestCalculDistanceUT {
      * Bézier -> Montpellier á travers (RN113) -> Avignon á travers (RN84).
      */
     @Test
-    public void should_return_the_shortest_trajectory_given_a_small_map() {
+    public void should_return_the_shortest_trajectory_given_a_small_map() throws MapNotFoundException {
         CalculTrajectoire calculTrajectoire = new CalculTrajectoire(new MapsRepository());
 
-        List expectedResult = Stream.of("Bézier", "RN113", "Montpellier", "RN84", "Avignon").collect(Collectors.toList());
-        Assertions.assertThat(calculTrajectoire.execute(smallMap,"Bézier","Avignon", withHighways, shortestPath)).isEqualTo(expectedResult);
+        List expectedResult = Stream.of("Béziers", "RN113", "Montpellier", "RN84", "Avignon").collect(Collectors.toList());
+        Assertions.assertThat(calculTrajectoire.execute(smallMap,"Béziers","Avignon", withHighways, shortestPath)).isEqualTo(expectedResult);
     }
 
     /**
@@ -206,10 +207,10 @@ public class TestCalculDistanceUT {
      * Bézier -> Montpellier (RN113) -> Avignon (RN84).
      */
     @Test
-    public void should_return_the_shortest_distance_given_a_small_map_ignoring_highways() {
+    public void should_return_the_shortest_distance_given_a_small_map_ignoring_highways() throws MapNotFoundException {
         CalculTrajectoire calculTrajectoire = new CalculTrajectoire(new MapsRepository());
-        List expectedResult = Stream.of("Bézier", "RN113", "Montpellier", "RN84", "Avignon").collect(Collectors.toList());
-        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Bézier","Avignon", withoutHighways, shortestPath)).isEqualTo(expectedResult);
+        List expectedResult = Stream.of("Béziers", "RN113", "Montpellier", "RN84", "Avignon").collect(Collectors.toList());
+        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Béziers","Avignon", withoutHighways, shortestPath)).isEqualTo(expectedResult);
     }
 
     /**
@@ -303,11 +304,11 @@ public class TestCalculDistanceUT {
      * Bézier -> Arles á travers RN50 -> Avignon á travers RN96.
      */
     @Test
-    public void should_return_the_fastest_path_given_a_small_map_ignoring_highways() {
+    public void should_return_the_fastest_path_given_a_small_map_ignoring_highways() throws MapNotFoundException {
         CalculTrajectoire calculTrajectoire = new CalculTrajectoire(new MapsRepository());
 
-        List expectedResult = Stream.of("Bézier", "RN50", "Arles", "RN96", "Avignon").collect(Collectors.toList());
-        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Bézier","Avignon",withoutHighways, fastestPath )).isEqualTo(expectedResult);
+        List expectedResult = Stream.of("Béziers", "RN50", "Arles", "RN96", "Avignon").collect(Collectors.toList());
+        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Béziers","Avignon",withoutHighways, fastestPath )).isEqualTo(expectedResult);
     }
 
     /**
@@ -403,10 +404,11 @@ public class TestCalculDistanceUT {
      * Bézier ->  Avignon á travers A9.
      */
     @Test
-    public void should_return_the_fastest_path_given_a_small_map() {
+    public void should_return_the_fastest_path_given_a_small_map() throws MapNotFoundException {
         CalculTrajectoire calculTrajectoire = new CalculTrajectoire(new MapsRepository());
 
-        List expectedResult = Stream.of("Bézier", "A9", "Avignon").collect(Collectors.toList());
-        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Bézier","Avignon",withHighways,fastestPath)).isEqualTo(expectedResult);
+        //List expectedResult = Stream.of("Bézier", "A9", "Avignon").collect(Collectors.toList());
+        List<String> expectedResult = List.of("Béziers", "A9", "Avignon");
+        Assertions.assertThat(calculTrajectoire.execute(bigMap,"Béziers","Avignon",withHighways,fastestPath)).isEqualTo(expectedResult);
     }
 }

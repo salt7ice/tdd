@@ -1,6 +1,7 @@
 package com.example.core.usecase;
 
 import com.example.core.domain.GraphMap;
+import com.example.core.exceptions.MapNotFoundException;
 import com.example.core.port.IportMapsRepository;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class CalculTrajectoire {
         this.iportMapsRepository = iportMapsRepository;
     }
 
-    public List<String> execute(int mapNr,String start, String end, boolean isSansAutoroutes, boolean isSpeedChoice) {
+    public List<String> execute(int mapNr,String start, String end, boolean isSansAutoroutes, boolean isSpeedChoice) throws MapNotFoundException {
         GraphMap graphMap = iportMapsRepository.getGraphMap(mapNr);
         graphMap.setStart(start);
         graphMap.setEnd(end);

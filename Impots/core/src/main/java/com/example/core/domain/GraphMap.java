@@ -86,7 +86,6 @@ public class GraphMap {
             endNode = previousNode.get(endNode);
         }
         result.add(0,startNode);
-        //Collections.reverse(result);
         return result;
     }
 
@@ -170,28 +169,6 @@ public class GraphMap {
             }
         }
         return minNode;
-    }
-
-    private void printShortestPaths(Map<String, Integer> distances) {
-        System.out.println("Shortest paths:");
-
-        for (Map.Entry<String, Integer> entry : distances.entrySet()) {
-            String node = entry.getKey();
-            int distance = entry.getValue();
-
-            System.out.println(node + ": " + distance);
-        }
-    }
-
-    private void printShortestPathsDouble(Map<String, Double> distances) {
-        System.out.println("Shortest paths:");
-
-        for (Map.Entry<String, Double> entry : distances.entrySet()) {
-            String node = entry.getKey();
-            Double distance = entry.getValue();
-
-            System.out.println(node + ": " + distance);
-        }
     }
 
 
