@@ -8,6 +8,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Impots/adapters/pom.xml" />
         <option value="$PROJECT_DIR$/Impots/adapters/secondaries/CSV/pom.xml" />
         <option value="$PROJECT_DIR$/Impots/csv/pom.xml" />
         <option value="$PROJECT_DIR$/impots/adapters/secondaries/pom.xml" />

@@ -26,6 +26,7 @@
         <module>adapters</module>
         <module>adapters/secondaries/Memory</module>
         <module>csv</module>
+        <module>adapters/primaries/SpringBoot</module>
 
     </modules>
 

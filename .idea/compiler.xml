@@ -12,6 +12,7 @@
         <module name="Memory" />
         <module name="CSV" />
         <module name="core-test" />
+        <module name="SpringBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,7 +25,10 @@
       <module name="Impots" target="17" />
       <module name="Memory" target="17" />
       <module name="primaries" target="17" />
+      <module name="primaries1" target="17" />
+      <module name="primaries2" target="17" />
       <module name="secondaries" target="17" />
+      <module name="SpringBoot" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
